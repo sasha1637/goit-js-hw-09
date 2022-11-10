@@ -49,10 +49,10 @@ flatpickr('#datetime-picker', options);
       'OK') 
     clearInterval(timeId)
     Notiflix.Notify.success('Время вышло!!!');
-    } else {
+    } 
       const times =convertMs(time)
       updateInterfase(times);
-    }
+    
     
     }, INTERVAL);
     } 
