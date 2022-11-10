@@ -16,3 +16,18 @@ img {
   display: block;
   max-width: 100%;
 }
+.timer {
+display: flex;
+flex-direction: row;
+text-align: center;
+justify-content: space-around;
+}
+.field{
+  display: flex;
+  flex-direction: column;
+}
+#datetime-picker{
+  text-align: center;
+  
+}
+
