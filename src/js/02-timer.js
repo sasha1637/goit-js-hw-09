@@ -24,7 +24,7 @@ const options = {
     minDate: "today",
     enableTime: true,
     time_24hr: true,
-    showMonths: 2,
+    showMonths: 1,
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
@@ -41,8 +41,10 @@ flatpickr('#datetime-picker', options);
 
     const curentTime= new Date()
     const time=finishTime-curentTime
-    if(Math.round(time/1000)===0){
-    Notiflix.Loading.remove();
+    if(time<INTERVAL){
+      // if(!Math.round(time/INTERVAL)){
+
+    Notiflix.Loading.remove();  
     Notiflix.Report.success(
       'Время вышло!!!',
 'Выбирай новую дату и снова мня запускай',
@@ -56,11 +58,11 @@ flatpickr('#datetime-picker', options);
     
     }, INTERVAL);
     } 
-  function updateInterfase(times){
-    refs.dateDays.textContent=addLeadingZero(times.days)
-    refs.hours.textContent=addLeadingZero(times.hours)
-    refs.minutes.textContent=addLeadingZero(times.minutes)
-    refs.seconds.textContent=addLeadingZero(times.seconds)
+  function updateInterfase({days,hours,minutes,seconds}){
+    refs.dateDays.textContent=addLeadingZero(days)
+    refs.hours.textContent=addLeadingZero(hours)
+    refs.minutes.textContent=addLeadingZero(minutes)
+    refs.seconds.textContent=addLeadingZero(seconds)
   }
   function convertMs(ms) {
 
